@@ -1,0 +1,66 @@
+package org.smart4j.charpter1.test;
+
+/**
+ * @Author: yp.huang
+ * @Create time: 2018/8/8 15:54
+ */
+
+import com.hyp.charpter1.model.Customer;
+import com.hyp.charpter1.service.CustomerService;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * CustomerServiceTest单元测试
+ */
+public class CustomerServiceTest {
+
+    private final CustomerService customerService;
+
+    public CustomerServiceTest(){
+        customerService = new CustomerService();
+    }
+
+    @Before
+    public void init() {
+        //todo 初始化数据库
+    }
+
+    @Test
+    public void getCustomerTest() throws Exception {
+        long id = 1;
+        Customer customer = customerService.getCustomer(id);
+        Assert.assertNotNull(customer);
+    }
+
+    @Test
+    public void createCustomerTest() throws Exception {
+        Map<String, Object> fieldMap = new HashMap<String, Object>();
+        fieldMap.put("name", "customer100");
+        fieldMap.put("contact", "John");
+        fieldMap.put("telephone", "13512345678");
+        boolean result = customerService.createCustomer(fieldMap);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void updateCustomerTest() throws Exception {
+        long id = 1;
+        Map<String, Object> fieldMap = new HashMap<String, Object>();
+        fieldMap.put("contact", "Eric");
+        boolean result = customerService.updateCutomer(id, fieldMap);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void deleteCutomerTest() throws Exception {
+        long id = 1;
+        boolean result = customerService.deleteCustomer(id);
+        Assert.assertTrue(result);
+    }
+
+}

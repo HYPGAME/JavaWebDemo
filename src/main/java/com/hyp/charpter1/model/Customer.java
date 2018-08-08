@@ -1,4 +1,4 @@
-package com.hyp.charpter1.service;
+package com.hyp.charpter1.model;
 
 /**
  * @Author: yp.huang
