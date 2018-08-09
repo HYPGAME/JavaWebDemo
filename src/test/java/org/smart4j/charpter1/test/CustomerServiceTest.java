@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,6 +29,12 @@ public class CustomerServiceTest {
     @Before
     public void init() {
         //todo 初始化数据库
+    }
+
+    @Test
+    public void getCustomerListTest() throws Exception {
+        List<Customer> customerList = customerService.getCustomerList();
+        Assert.assertNotNull(customerList);
     }
 
     @Test
